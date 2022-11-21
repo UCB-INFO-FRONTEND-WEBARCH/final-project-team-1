@@ -61,3 +61,11 @@
 .stepbtn {
 	margin: 10px;
 } 
+
+.hide{
+  visibility: hidden;
+}
+
+.show{
+  visibility: visible;
+}
