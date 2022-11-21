@@ -9,40 +9,67 @@ const Step_1 = () => {
 	const { step, setStep, myData, setData, header, setHeader} = useContext(Context);
 	var idmax = 0; 
 	let colHeaders = []
+	let hCheck = false;
+	let checkForUpload = false;
+	let checkForAttributes = false;
+
+
+	function setUploadTrue(){
+		checkForUpload = true
+		viewTable() 
+	}
+
+	function setAttributesTrue(){
+		header.shift();
+		checkForAttributes = true;
+		setUploadTrue()	
+	}
 
 
 	//display the CSV file upload as a table: 
 	function viewTable() {
-		var checkForUpload = document.getElementById('uploadButton'); //handles null values of getElementByID 
-		if(checkForUpload){
-				var fileReader = new FileReader();
-				fileReader.addEventListener('load', function() {
-					setData(this.result);
+		if(checkForUpload){ //handles null values of getElementByID 
+			var fileReader = new FileReader();
+			fileReader.addEventListener('load', function() {
+				setData(this.result);
+				if(checkForAttributes){  //handles blank state of colHeaders
 
 					//split first row of data into an array of strings to get headers 
-					// colHeaders = (myData.split(/\r?\n/)[0]).split(',');
-					setHeader((myData.split(/\r?\n/)[0]).split(','));
-					console.log(header)
-				});
-				fileReader.readAsText(document.querySelector('input').files[0]);
+					colHeaders = ((myData.split(/\r?\n/))[0]).split(',');
+					loadHeader();
+				}
+				
+			});
+			fileReader.readAsText(document.querySelector('input').files[0]);
 		}
 	}
 	
-	//**attempted to make header into objects so that we could track if it was checked or not but I couldnt get this to work....
-	// function loadHeader(){
-	// 	for (let i = 0; i < colHeaders.length; i++) {
-	// 		let temp = {id: idmax, title: colHeaders[i], status: false}
-	// 		setHeader(...header, temp);
-	// 		idmax += 1;
-	// 	}
-	// }
+	//turn header strings into objects 
+	function loadHeader(){
+		for (let i = 0; i < colHeaders.length; i++) {
+			let temp = {id: idmax, title: colHeaders[i], status: false}
+			setHeader(header => {return [...header, temp]});
+			idmax += 1;
+		}
+		hCheck = true;
+	}
+
+	function markChecked(id) {
+		let newHead = header.map(header => {
+			if (header.id===id){
+			  return ({...header, status:! header.status});
+			}
+			return header;
+		  })
+		  setHeader(newHead);
+	}
 
   	return (
    		<div className="Step">
-		<div class="row">
+		<div className="row">
 
 		{/* instructions  */}
-		<div class="column">
+		<div className="column">
 			<h1>Step 1: Upload your dataset</h1>
 			<h3>Your dataset must contain</h3>
 			<ul>
@@ -54,26 +81,24 @@ const Step_1 = () => {
 		</div>
 
 		{/* upload file */}
-		<div class="column">
+		<div className="column">
 		<div className = "CSVImport">
 				<h3>choose your file</h3>
 				<input type="file" accept={".csv"}/>
-				<button id="uploadButton" onClick = {(e) => viewTable()}>Submit</button>
+				<button id="uploadButton" onClick = {() => setUploadTrue()}>Submit</button>
 				<p id = 'uploadedFile'></p>
 				<CsvToHtmlTable data={myData} csvDelimiter="," tableClassName="table table-striped table-hover table-bordered table-sm table-dark"/>
 		</div>
 		</div>
 
 		{/*choose attributes */}
-		<div class="column">
+		<div className = 'column'>
 			<h3>choose your attributes</h3>
-			<button onClick = {(e) => viewTable()}>Go</button>
-			{/* <button onClick = {(e) => loadHeader()}>Go again</button> */}
-
+			<button id = 'attributeButton' onClick = {() => setAttributesTrue()}>Go</button>
 			<ul>
-			{header.map((head) => { return ( 
-				<li className = 'invis'><input type="checkbox"/>{head}</li> )            
-				})}
+				{header.map((head) => { return ( 
+					<li className = 'invis'><input type="checkbox" onClick = {(e) => markChecked(head.id)}/>{head.title}</li> )            
+					})}
 			</ul>
 		</div>
     	</div>
