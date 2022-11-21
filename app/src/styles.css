@@ -1,13 +1,15 @@
 .Step {
   margin-top: 10px;
+  padding-left: 50px;
   padding-top: 5px;
   color: #ffffff;
   border:1px solid #de6161;
   border-right:none;
-  text-align: center;
+  text-align: left;
   font-size:20px;
   background-color:#de6161;
-  height: 300px;
+  height: 1000px;
+
 }
 
 .Status {
@@ -20,6 +22,36 @@
   font-size:20px;
   background-color:#444444;
   height: 100px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.CSVImport{
+  display: inline-block;
+
+}
+
+.csvTable{
+  border: 1px solid;
+  width: 100%;
+
+}
+
+.invis{
+  list-style-type: none; 
+  margin: 6px 0px;
+  padding-left: 0px;
 }
 
 .steplist {	
