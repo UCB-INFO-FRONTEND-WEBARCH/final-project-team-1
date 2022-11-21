@@ -11,6 +11,9 @@ function App() {
 	
     const [step, setStep] = useState(1);
 	const [myData, setData] = useState('');
+	const [header, setHeader] = useState([{}]);
+	const [radio, setRadio] = useState('option1');
+	const [percent, setPercent] = useState(0);
 	
 	function renderStep() {
 	    if (step == 3) return <Step_3 />
@@ -25,7 +28,13 @@ function App() {
 				step,
 				setStep,
 				myData,
-				setData
+				setData,
+				header,
+				setHeader,
+				radio,
+				setRadio,
+				percent,
+				setPercent
 				}}
 		> 		
 		  <div>
