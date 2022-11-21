@@ -10,6 +10,7 @@ export const Context = createContext();
 function App() {
 	
     const [step, setStep] = useState(1);
+	const [myData, setData] = useState('');
 	
 	function renderStep() {
 	    if (step == 3) return <Step_3 />
@@ -23,6 +24,8 @@ function App() {
         	value={{
 				step,
 				setStep,
+				myData,
+				setData
 				}}
 		> 		
 		  <div>
