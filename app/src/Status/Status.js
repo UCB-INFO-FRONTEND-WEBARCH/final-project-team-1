@@ -8,7 +8,7 @@ const Status = () => {
 	const { step, setStep } = useContext(Context);
 
   	return (
-   		<div className="Status">
+   		<div id="Status" className="Status">
 			<div className="steplist">
 				<Button className="stepbtn" variant="primary" onClick={() => {  setStep(1) }}>Step 1</Button>  
 				<Button className="stepbtn" variant="primary" onClick={() => {  setStep(2) }}>Step 2</Button>  
