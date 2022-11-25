@@ -20,7 +20,7 @@ function App() {
 	const [myData, setData] = useState('');
 	const [header, setHeader] = useState([{}]);
 	const [radio, setRadio] = useState('option1');
-	const [percent, setPercent] = useState(0);
+	const [percent, setPercent] = useState(80);
 	
 	function renderStep() {
 		

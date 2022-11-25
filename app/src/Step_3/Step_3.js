@@ -2,12 +2,12 @@ import React, { useState, useEffect, useContext, createContext } from "react";
 import { Context } from "../App";
 import Button from "@cloudscape-design/components/button";
 import Checkbox from "@cloudscape-design/components/checkbox";
-
+import Input from "@cloudscape-design/components/input";
 
 const Step_3 = () => {
 	
 	const { step, setStep, percent, setPercent } = useContext(Context);
-	const [temp, setTemp] = useState(0); //temporary state to store user percent input 
+	const [temp, setTemp] = useState(80); //temporary state to store user percent input 
 	const [checked, setChecked] = useState(true);
 
   	return (
@@ -15,15 +15,16 @@ const Step_3 = () => {
 		<div>
 			<h1>Enter your Disparity Intolerance (in %)</h1>
 			<h4>If a specific bias metric for a group is within this percentage of the reference group, this audit will pass</h4>
-			<input
-				type="text"
-				placeholder="%"
-				value = {temp}
-				onChange={e => setTemp(e.target.value)}
-			/>	
-			<button onClick = {() => setPercent(temp)}>
+			<Input
+      			onChange={({ detail }) => setTemp(detail.value)}
+				value={temp}
+				autoFocus
+				inputMode="numeric"
+				type="number"
+			/>
+			<Button variant="primary" onClick = {() => setPercent(temp)}>
 				Enter
-			</button>		
+			</Button>		
 			<p>you inputted: {percent}%</p>
 		</div>
 
