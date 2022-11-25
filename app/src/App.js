@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
 import "./styles.css";
+import '@cloudscape-design/global-styles/index.css';
+import { applyMode, applyDensity, Density, Mode } from '@cloudscape-design/global-styles';
 import Step_1 from "./Step_1/Step_1";
 import Step_2 from "./Step_2/Step_2";
 import Step_3 from "./Step_3/Step_3";
@@ -7,6 +9,8 @@ import Status from "./Status/Status";
 import Footer from "./Footer/Footer";
 import Results from "./Results/Results";
 import Home from "./Home/Home";
+
+applyMode(Mode.Dark);
 
 export const Context = createContext();
 
