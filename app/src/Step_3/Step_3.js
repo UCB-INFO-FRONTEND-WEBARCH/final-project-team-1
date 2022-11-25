@@ -42,7 +42,7 @@ const Step_3 = () => {
 								</Button>
 							</SpaceBetween>
 						</Box>
-						<Box variant="p">you inputted: {percent}%</Box>
+						<Box variant="p">You inputted: {percent}%</Box>
 					</SpaceBetween>
 				</Box>
 			</div>
@@ -74,27 +74,60 @@ const Step_3 = () => {
 							<Icon name="status-info" />
 						</Popover>
 					</Box>
-					<Checkbox
-						onChange={({ detail }) =>
-							setChecked2(detail.checked)
-						} checked={checked2}
-					>
-							Proportional Parity - Ensure all protected groups are selected proportional to their percentage of the population.
-					</Checkbox>
-					<Checkbox
-						onChange={({ detail }) =>
-							setChecked3(detail.checked)
-						} checked={checked3}
-					>
-							False Positive Rate Parity - Ensure all protected groups have the same false positive rates as the reference group.
-					</Checkbox>
-					<Checkbox
-						onChange={({ detail }) =>
-							setChecked4(detail.checked)
-						} checked={checked4}
-					>
-							False Negative Rate Parity - Ensure all protected groups have the same false negative rates (as the reference group).
-					</Checkbox>
+					<Box float="left" padding={{ right: "s" }}>
+						<Checkbox
+							onChange={({ detail }) =>
+								setChecked2(detail.checked)
+							} checked={checked2}
+						>
+							Proportional Parity
+						</Checkbox>
+					</Box>
+					<Box>
+						<Popover
+							dismissAriaLabel="Close"
+							header="Proportional Parity"
+							content="Ensure all protected groups are selected proportional to their percentage of the population."
+						>
+							<Icon name="status-info" />
+						</Popover>
+					</Box>
+					<Box float="left" padding={{ right: "s" }}>
+						<Checkbox
+							onChange={({ detail }) =>
+								setChecked3(detail.checked)
+							} checked={checked3}
+						>
+								False Positive Rate Parity
+						</Checkbox>
+					</Box>
+					<Box>
+						<Popover
+							dismissAriaLabel="Close"
+							header="False Positive Rate Parity"
+							content="Ensure all protected groups have the same false positive rates as the reference group."
+						>
+							<Icon name="status-info" />
+						</Popover>
+					</Box>
+					<Box float="left" padding={{ right: "s" }}>
+						<Checkbox
+							onChange={({ detail }) =>
+								setChecked4(detail.checked)
+							} checked={checked4}
+						>
+								False Negative Rate Parity
+						</Checkbox>
+					</Box>
+					<Box>
+						<Popover
+							dismissAriaLabel="Close"
+							header="False Negative Rate Parity"
+							content="Ensure all protected groups have the same false negative rates (as the reference group)."
+						>
+							<Icon name="status-info" />
+						</Popover>
+					</Box>
 				</Box>
 			</div>
     	</div>
