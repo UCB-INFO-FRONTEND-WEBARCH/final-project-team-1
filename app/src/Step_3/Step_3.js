@@ -5,12 +5,17 @@ import Checkbox from "@cloudscape-design/components/checkbox";
 import Input from "@cloudscape-design/components/input";
 import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
+import Icon from "@cloudscape-design/components/icon";
+import Popover from "@cloudscape-design/components/popover";
 
 const Step_3 = () => {
 	
 	const { step, setStep, percent, setPercent } = useContext(Context);
 	const [temp, setTemp] = useState(80); //temporary state to store user percent input 
-	const [checked, setChecked] = useState(true);
+	const [checked1, setChecked1] = useState(true);
+	const [checked2, setChecked2] = useState(true);
+	const [checked3, setChecked3] = useState(true);
+	const [checked4, setChecked4] = useState(true);
 
   	return (
    		<div className="Step">
@@ -51,31 +56,42 @@ const Step_3 = () => {
 			</div>
 			<div>
 				<Box margin="l" padding="l">
+					<Box float="left" padding={{ right: "s" }}>
+						<Checkbox
+							onChange={({ detail }) =>
+								setChecked1(detail.checked)
+							} checked={checked1}
+							>
+								Equal Parity
+						</Checkbox>
+					</Box>
+					<Box>
+						<Popover
+							dismissAriaLabel="Close"
+							header="Equal Parity"
+							content="Ensure all protected groups are have equal representation in the selected set."
+						>
+							<Icon name="status-info" />
+						</Popover>
+					</Box>
 					<Checkbox
 						onChange={({ detail }) =>
-							setChecked(detail.checked)
-						} checked={checked}
-					>
-							Equal Parity - Ensure all protected groups are have equal representation in the selected set.
-					</Checkbox>
-					<Checkbox
-						onChange={({ detail }) =>
-							setChecked(detail.checked)
-						} checked={checked}
+							setChecked2(detail.checked)
+						} checked={checked2}
 					>
 							Proportional Parity - Ensure all protected groups are selected proportional to their percentage of the population.
 					</Checkbox>
 					<Checkbox
 						onChange={({ detail }) =>
-							setChecked(detail.checked)
-						} checked={checked}
+							setChecked3(detail.checked)
+						} checked={checked3}
 					>
 							False Positive Rate Parity - Ensure all protected groups have the same false positive rates as the reference group.
 					</Checkbox>
 					<Checkbox
 						onChange={({ detail }) =>
-							setChecked(detail.checked)
-						} checked={checked}
+							setChecked4(detail.checked)
+						} checked={checked4}
 					>
 							False Negative Rate Parity - Ensure all protected groups have the same false negative rates (as the reference group).
 					</Checkbox>
