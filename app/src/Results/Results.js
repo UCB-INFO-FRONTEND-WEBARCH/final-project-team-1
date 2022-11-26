@@ -9,6 +9,7 @@ import PieChart from "@cloudscape-design/components/pie-chart";
 import Container from "@cloudscape-design/components/container";
 import Header from "@cloudscape-design/components/header";
 import ColumnLayout from "@cloudscape-design/components/column-layout";
+import BarChart from "@cloudscape-design/components/bar-chart";
 import {
 	colorChartsStatusNeutral,
 	colorChartsStatusHigh,
@@ -187,7 +188,7 @@ const Results = () => {
 								<Header
 								variant="h3"
 								>
-									<Box variant="h3">Equal parity</Box>
+									<Box variant="h3" id="ep">Equal parity</Box>
 									<Badge color="red">Failed</Badge>
 								</Header>
 							}
@@ -213,19 +214,97 @@ const Results = () => {
 										</SpaceBetween>
 										<ul>
 											<li><strong>Hispanic</strong> with 0.09X Disparity</li>
-											<li><strong>Hispanic</strong> with 0.09X Disparity</li>
-											<li><strong>Hispanic</strong> with 0.09X Disparity</li>
+											<li><strong>Caucasian</strong> with 0.39X Disparity</li>
+											<li><strong>Other</strong> with 0.04X Disparity</li>
+											<li><strong>Native American</strong> with 0.01X Disparity</li>
+											<li><strong>Asian</strong> with 0.00X Disparity</li>
 										</ul>
 									</div>
 									<div>
-										<Badge color="blue">sex</Badge>
-										<Box variant="p">If your desired outcome is to intervene equally on people from all races, then you care about this criteria.</Box>
+										<SpaceBetween direction="vertical" size="s">
+											<Badge color="blue">sex</Badge>
+											<Box>The Majority Group is: <strong>Male</strong></Box>
+											<Box>Groups <strong>failed</strong> the audit:</Box>
+										</SpaceBetween>
+										<ul>
+											<li><strong>Female</strong> with 0.22X Disparity</li>
+										</ul>
 									</div>
 									<div>
-										<Badge color="blue">age_cat</Badge>
-										<Box variant="p">If your desired outcome is to intervene equally on people from all races, then you care about this criteria.</Box>
+										<SpaceBetween direction="vertical" size="s">
+											<Badge color="blue">age_cat</Badge>
+											<Box>The Majority Group is: <strong>25–45</strong></Box>
+											<Box>Groups <strong>failed</strong> the audit:</Box>
+										</SpaceBetween>
+										<ul>
+											<li><strong>Greater than 45</strong> with 0.20X Disparity</li>
+											<li><strong>Less than 25</strong> with 0.52X Disparity</li>
+										</ul>
 									</div>
 								</ColumnLayout>
+								<Box variant="h4">Graph by attribute</Box>
+								<Badge color="blue">race</Badge>
+								<BarChart
+									series={[
+										{
+										title: "Failed groups",
+										type: "bar",
+										data: [
+											{ x: "Hispanic", y: 0.06 },
+											{ x: "Caucasian", y: 0.26 },
+											{ x: "Other", y: 0.02 },
+											{ x: "Native American", y: 0.0 },
+											{ x: "Asian", y: 0.0 }
+										]
+										},
+										{
+										title: "Majority Group – Black",
+										type: "threshold",
+										y: 0.66
+										}
+									]}
+									xDomain={[
+										"Hispanic",
+										"Caucasian",
+										"Other",
+										"Native American",
+										"Asian"
+									]}
+									yDomain={[0, 1]}
+									i18nStrings={{
+										filterLabel: "Filter displayed data",
+										filterPlaceholder: "Filter data",
+										filterSelectedAriaLabel: "selected",
+										detailPopoverDismissAriaLabel: "Dismiss",
+										legendAriaLabel: "Legend",
+										chartAriaRoleDescription: "line chart"
+									}}
+									ariaLabel="Single data series line chart"
+									errorText="Error loading data."
+									height={300}
+									loadingText="Loading chart"
+									recoveryText="Retry"
+									xScaleType="categorical"
+									xTitle="Group"
+									yTitle="Predicted positive ratio"
+									empty={
+										<Box textAlign="center" color="inherit">
+										<b>No data available</b>
+										<Box variant="p" color="inherit">
+											There is no data available
+										</Box>
+										</Box>
+									}
+									noMatch={
+										<Box textAlign="center" color="inherit">
+										<b>No matching data</b>
+										<Box variant="p" color="inherit">
+											There is no matching data to display
+										</Box>
+										<Button>Clear filter</Button>
+										</Box>
+									}
+									/>
 							</SpaceBetween>
 						</Container>
 					</SpaceBetween>
