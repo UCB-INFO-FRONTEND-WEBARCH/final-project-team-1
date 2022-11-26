@@ -55,6 +55,7 @@ const Step_3 = () => {
 					</Box>
 				</div>
 				<div>
+					{/* Fairness metric checkboxes and popover information */}
 					<Box margin="l" padding="l">
 						<Box float="left" padding={{ right: "s" }}>
 							<Checkbox
