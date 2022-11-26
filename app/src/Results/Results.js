@@ -6,6 +6,7 @@ import SpaceBetween from "@cloudscape-design/components/space-between";
 import Badge from "@cloudscape-design/components/badge";
 import Popover from "@cloudscape-design/components/popover";
 import PieChart from "@cloudscape-design/components/pie-chart";
+import Container from "@cloudscape-design/components/container";
 import {
 	colorChartsStatusNeutral,
 	colorChartsStatusHigh,
@@ -168,6 +169,8 @@ const Results = () => {
 								</Box>
 							}
 						/>
+						<Box variant="h3">Equal Parity</Box>
+						<Badge color="red">Failed</Badge>
 					</SpaceBetween>
 				</Box>
 			</div>
