@@ -22,7 +22,7 @@ const Step_3 = () => {
 			<div>
 				<Box margin="l" padding="l">
 					<SpaceBetween direction="vertical" size="xs">
-						<Box variant="h1">Enter your Disparity Intolerance (in %)</Box>
+						<Box variant="h1">Step 3: Enter your Disparity Intolerance (in %)</Box>
 						<Box variant="h4">If a specific bias metric for a group is within this percentage of the reference group, this audit will pass.</Box>
 					</SpaceBetween>
 				</Box>
