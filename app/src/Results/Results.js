@@ -7,6 +7,8 @@ import Badge from "@cloudscape-design/components/badge";
 import Popover from "@cloudscape-design/components/popover";
 import PieChart from "@cloudscape-design/components/pie-chart";
 import Container from "@cloudscape-design/components/container";
+import Header from "@cloudscape-design/components/header";
+import ColumnLayout from "@cloudscape-design/components/column-layout";
 import {
 	colorChartsStatusNeutral,
 	colorChartsStatusHigh,
@@ -46,7 +48,7 @@ const Results = () => {
 								header="Majority group"
 								content="The largest groups on each attribute will be used as baseline to calculate relative disparities in this audit."
 							>
-								<Badge color="blue">Majority group</Badge>
+								<Badge color="blue">Majority Group</Badge>
 							</Popover>
 						</Box>
 						</SpaceBetween>
@@ -107,7 +109,17 @@ const Results = () => {
 				<Box margin="l" padding="l">
 					<SpaceBetween direction="vertical" size="xs">
 						<Box variant="h2">Fairness Audit Details</Box>
-						<PieChart
+						<Container
+							header={
+								<Header
+								variant="h3"
+								description="Passed and failed metrics at a glance"
+								>
+								Fairness metric summary
+								</Header>
+							}
+							>
+							<PieChart
 							data={[
 								{
 								title: "Faild",
@@ -130,7 +142,7 @@ const Results = () => {
 							// 	{ key: "Last update on", value: datum.lastUpdate }
 							// ]}
 							segmentDescription={(datum, sum) =>
-								`${datum.value} units, ${(
+								`${datum.value} metrics, ${(
 								(datum.value / sum) *
 								100
 								).toFixed(0)}%`
@@ -169,8 +181,53 @@ const Results = () => {
 								</Box>
 							}
 						/>
-						<Box variant="h3">Equal Parity</Box>
-						<Badge color="red">Failed</Badge>
+						</Container>
+						<Container
+							header={
+								<Header
+								variant="h3"
+								>
+									<Box variant="h3">Equal parity</Box>
+									<Badge color="red">Failed</Badge>
+								</Header>
+							}
+						>
+							<SpaceBetween direction="vertical" size="l">
+								<ColumnLayout columns={2}>
+									<div>
+										<Box variant="h4">What is it?</Box>
+										<Box variant="p">This criteria considers an attribute to have equal parity is every group is equally represented in the selected set. For example, if race (with possible values of white, black, other) has equal parity, it implies that all three races are equally represented (33% each)in the selected/intervention set.</Box>
+									</div>
+									<div>
+										<Box variant="h4">When does it matter?</Box>
+										<Box variant="p">If your desired outcome is to intervene equally on people from all races, then you care about this criteria.</Box>
+									</div>
+								</ColumnLayout>
+								<Box variant="h4">Analysis by attribute</Box>
+								<ColumnLayout columns={3}>
+									<div>
+										<SpaceBetween direction="vertical" size="s">
+											<Badge color="blue">race</Badge>
+											<Box>The Majority Group is: <strong>Black</strong></Box>
+											<Box>Groups <strong>failed</strong> the audit:</Box>
+										</SpaceBetween>
+										<ul>
+											<li><strong>Hispanic</strong> with 0.09X Disparity</li>
+											<li><strong>Hispanic</strong> with 0.09X Disparity</li>
+											<li><strong>Hispanic</strong> with 0.09X Disparity</li>
+										</ul>
+									</div>
+									<div>
+										<Badge color="blue">sex</Badge>
+										<Box variant="p">If your desired outcome is to intervene equally on people from all races, then you care about this criteria.</Box>
+									</div>
+									<div>
+										<Badge color="blue">age_cat</Badge>
+										<Box variant="p">If your desired outcome is to intervene equally on people from all races, then you care about this criteria.</Box>
+									</div>
+								</ColumnLayout>
+							</SpaceBetween>
+						</Container>
 					</SpaceBetween>
 				</Box>
 			</div>
