@@ -19,7 +19,7 @@ function App() {
     const [step, setStep] = useState(0);
 	const [myData, setData] = useState('');
 	const [header, setHeader] = useState([{}]);
-	const [radio, setRadio] = useState('option1');
+	const [radio, setRadio] = useState('first');
 	const [percent, setPercent] = useState(80);
 	
 	function renderStep() {
