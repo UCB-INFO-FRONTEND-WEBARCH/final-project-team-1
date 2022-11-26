@@ -68,7 +68,7 @@ const Step_1 = () => {
 	}
 
   	return (
-			<div className="Step">
+			<div className="Step" id="Step1">
 				<Box margin="l" padding="l">
 					<SpaceBetween direction="vertical" size="xs">
 						<Box variant="h1">Step 1: Format your data (.csv)</Box>
