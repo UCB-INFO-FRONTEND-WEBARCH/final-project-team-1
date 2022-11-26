@@ -32,68 +32,58 @@ const Step_2 = () => {
 	// }
 
   	return (
-   		<div className="Step">
-
-			{/* display instructions */}
-			<Box margin="l" padding="l">
-				<SpaceBetween direction="vertical" size="xs">
-					<Box variant="h1">Step 2: Choose reference groups</Box>
-					<Box variant="h4">Reference groups are used to calculate relative disparities in our Bias Audit. For example, you might select Male as the reference group for Gender. FairML will then use Male as the baseline to calculate any biases for other groups in the attribute Gender (for Female and Other for example).</Box>
-				</SpaceBetween>
-			</Box>
-			{/* display radio button options */}
-			<Box margin="l" padding="l">
-				<RadioGroup
-					onChange={({ detail }) => setRadio(detail.value)}
-					value={radio}
-					items={[
-						{ value: "first", label: "Majority group (automatically select the largest group for every attribute)" },
-						{ value: "second", label: "Automatically select group with the lowest bias metric for every attribute" }
-					]}
+			<div className="Step">
+				{/* display instructions */}
+				<Box margin="l" padding="l">
+					<SpaceBetween direction="vertical" size="xs">
+						<Box variant="h1">Step 2: Choose reference groups</Box>
+						<Box variant="h4">Reference groups are used to calculate relative disparities in our Bias Audit. For example, you might select Male as the reference group for Gender. FairML will then use Male as the baseline to calculate any biases for other groups in the attribute Gender (for Female and Other for example).</Box>
+					</SpaceBetween>
+				</Box>
+				{/* display radio button options */}
+				<Box margin="l" padding="l">
+					<RadioGroup
+						onChange={({ detail }) => setRadio(detail.value)}
+						value={radio}
+						items={[
+							{ value: "first", label: "Majority group (automatically select the largest group for every attribute)" },
+							{ value: "second", label: "Automatically select group with the lowest bias metric for every attribute" }
+						]}
+						/>
+				</Box>
+			{/* <form>
+				<div className="radio">
+			<label>
+				<input 
+					type="radio" 
+					value="option1" 
+					checked={radio === "option1"}
+					onClick = {() => setOption1()}
 					/>
-			</Box>
-		{/* <form>
-			<div className="radio">
-          <label>
-            <input 
-				type="radio" 
-				value="option1" 
-				checked={radio === "option1"}
-				onClick = {() => setOption1()}
-				/>
-            
-          </label>
-        </div>
-        <div className="radio">
-          <label>
-            <input 
-				type="radio" 
-				value="option2"
-				onClick = {() => setOption2()}
-				checked={radio === "option2"}/>
-            
-          </label>
-        </div>
-		</form> */}
-
-
-		{/* display selected header attributes */}
-		<div>
-			{/* include logic to only show header objects marked as True */}
-
-			<ul>
 				
-				{headerSelected.map((head) => { return ( 
-					<li className = 'invis'><input type="checkbox" onClick = {(e) => markChecked(head.id)} checked/>{head.title}</li> )            
-					})}
-			</ul>
-		</div>
-
-    	</div>
-		
-
-
-
+			</label>
+			</div>
+			<div className="radio">
+			<label>
+				<input 
+					type="radio" 
+					value="option2"
+					onClick = {() => setOption2()}
+					checked={radio === "option2"}/>
+				
+			</label>
+			</div>
+			</form> */}
+			{/* display selected header attributes */}
+			<div>
+				{/* include logic to only show header objects marked as True */}
+				<ul>				
+					{headerSelected.map((head) => { return ( 
+						<li className = 'invis'><input type="checkbox" onClick = {(e) => markChecked(head.id)} checked/>{head.title}</li> )            
+						})}
+				</ul>
+			</div>
+			</div>
   	);
   };
 export default Step_2;
