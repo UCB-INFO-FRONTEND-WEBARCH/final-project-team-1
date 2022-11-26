@@ -304,7 +304,129 @@ const Results = () => {
 										<Button>Clear filter</Button>
 										</Box>
 									}
-									/>
+								/>
+								<hr />
+								<ColumnLayout columns={2}>
+									<div>
+									<SpaceBetween direction="vertical" size="l">
+										<Badge color="blue">sex</Badge>
+										<BarChart
+											series={[
+												{
+												title: "Failed groups",
+												type: "bar",
+												data: [
+													{ x: "Female", y: 0.18 }
+												]
+												},
+												{
+												title: "Majority Group – Male",
+												type: "threshold",
+												y: 0.82
+												}
+											]}
+											xDomain={[
+												"Female"
+											]}
+											yDomain={[0, 1]}
+											i18nStrings={{
+												filterLabel: "Filter displayed data",
+												filterPlaceholder: "Filter data",
+												filterSelectedAriaLabel: "selected",
+												detailPopoverDismissAriaLabel: "Dismiss",
+												legendAriaLabel: "Legend",
+												chartAriaRoleDescription: "line chart"
+											}}
+											ariaLabel="Single data series line chart"
+											errorText="Error loading data."
+											height={300}
+											loadingText="Loading chart"
+											recoveryText="Retry"
+											xScaleType="categorical"
+											xTitle="Group"
+											yTitle="Predicted positive ratio"
+											empty={
+												<Box textAlign="center" color="inherit">
+												<b>No data available</b>
+												<Box variant="p" color="inherit">
+													There is no data available
+												</Box>
+												</Box>
+											}
+											noMatch={
+												<Box textAlign="center" color="inherit">
+												<b>No matching data</b>
+												<Box variant="p" color="inherit">
+													There is no matching data to display
+												</Box>
+												<Button>Clear filter</Button>
+												</Box>
+											}
+											/>
+											</SpaceBetween>
+									</div>
+									<div>
+									<SpaceBetween direction="vertical" size="l">
+										<Badge color="blue">age_cat</Badge>
+										<BarChart
+											series={[
+												{
+												title: "Failed groups",
+												type: "bar",
+												data: [
+													{ x: "Greater than 45", y: 0.12 },
+													{ x: "Less than 25", y: 0.3 }
+												]
+												},
+												{
+												title: "Majority Group – 25–45",
+												type: "threshold",
+												y: 0.58
+												}
+											]}
+											xDomain={[
+												"Greater than 45",
+												"Less than 25"
+											]}
+											yDomain={[0, 1]}
+											i18nStrings={{
+												filterLabel: "Filter displayed data",
+												filterPlaceholder: "Filter data",
+												filterSelectedAriaLabel: "selected",
+												detailPopoverDismissAriaLabel: "Dismiss",
+												legendAriaLabel: "Legend",
+												chartAriaRoleDescription: "line chart"
+											}}
+											ariaLabel="Single data series line chart"
+											errorText="Error loading data."
+											height={300}
+											loadingText="Loading chart"
+											recoveryText="Retry"
+											xScaleType="categorical"
+											xTitle="Group"
+											yTitle="Predicted positive ratio"
+											empty={
+												<Box textAlign="center" color="inherit">
+												<b>No data available</b>
+												<Box variant="p" color="inherit">
+													There is no data available
+												</Box>
+												</Box>
+											}
+											noMatch={
+												<Box textAlign="center" color="inherit">
+												<b>No matching data</b>
+												<Box variant="p" color="inherit">
+													There is no matching data to display
+												</Box>
+												<Button>Clear filter</Button>
+												</Box>
+											}
+											/>
+											</SpaceBetween>
+									</div>
+								</ColumnLayout>
+							
 							</SpaceBetween>
 						</Container>
 					</SpaceBetween>
