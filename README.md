@@ -1,4 +1,32 @@
-# INFO 253A - Final Project
+# INFO 253A - Final Project - Team 1
+Jennifer Chan
+
+Benjamin Fell Costa
+
+Jane Lupica
+
+Han Yang
+
+
+## From the Project Team
+
+### Install the following packages before running the application
+```
+npm install @cloudscape-design/global-styles
+npm install @cloudscape-design/components
+npm install react-csv-to-table@0.0.1
+npm install bootstrap-table
+npm install bootstrap
+npm install react-router-dom
+npm install @cloudscape-design/design-tokens
+```
+
+## From the Teaching Team
+
+### The project is split into three parts
+1. Defining your project with your assigned team
+2. Implementing your project idea, presenting to the class
+3. And writing about it.
 
 ## Objective
 
