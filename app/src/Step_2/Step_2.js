@@ -32,7 +32,7 @@ const Step_2 = () => {
 	// }
 
   	return (
-			<div className="Step">
+			<div className="Step" id="Step2">
 				{/* display instructions */}
 				<Box margin="l" padding="l">
 					<SpaceBetween direction="vertical" size="xs">

@@ -6,7 +6,10 @@ import Button from "@cloudscape-design/components/button"
 const Footer = () => {
 	
 	const { step, setStep } = useContext(Context);
-
+	const { step2enable, setStep2enable} = useContext(Context);
+	const { step3enable, setStep3enable} = useContext(Context);
+	
+	/*Back button function: Checks current step, and navigates towards previous step by setting the current step State.*/
     function prev() {
 		switch(step) {
 		  case 1:
@@ -25,6 +28,7 @@ const Footer = () => {
 		}
     }
 	
+	/*Next button function: Checks current step, and navigates towards the next step by setting the current step State.*/
     function next() {
 		switch(step) {
 	  	  case 0:
@@ -32,9 +36,11 @@ const Footer = () => {
 			  break;
 		  case 1:
 		  	setStep(2)
+			setStep2enable(true)
 		    break;
 		  case 2:
   		    setStep(3)
+			setStep3enable(true)
   		    break;
 	  	  case 3:
 		    setStep(4)
@@ -47,6 +53,7 @@ const Footer = () => {
 		}
     }
 	
+	/*If in home or results page, we use slightly different names for the back/next buttons in the footer.*/
 	function footer_next_btn_name() {
 		
 		if(step == 0) {return "Get Started";}
@@ -54,6 +61,7 @@ const Footer = () => {
 		else return "Next";
 	} 
 	
+	/*Renders the footer*/
   	return (
    		<div className="Footer">
 			<div className="steplist">
