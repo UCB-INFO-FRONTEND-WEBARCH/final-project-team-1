@@ -12,8 +12,9 @@
 }
 
 #Step1 {
-  min-height: 110vh;  
+  min-height: 1000vh;  
   padding-bottom: 200px; 
+  background-color:#000000;
   
 }
 
@@ -126,6 +127,10 @@
 
 .show{
   visibility: visible;
+}
+
+.long{
+  height: 1000px;
 }
 
 .nav {

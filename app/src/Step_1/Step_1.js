@@ -6,7 +6,7 @@ import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import Button from "@cloudscape-design/components/button";
 import Header from "@cloudscape-design/components/header"
-
+ 
 const Step_1 = () => {
 	
 	const { step, setStep, myData, setData, header, setHeader} = useContext(Context);
@@ -181,7 +181,9 @@ const Step_1 = () => {
 							<Button variant="primary" id="uploadButton" onClick = {() => setUploadTrue()}>Submit</Button>
 						</SpaceBetween>
 						<p id='uploadedFile'></p>
-						<CsvToHtmlTable data={myData} csvDelimiter="," tableClassName="table table-striped table-hover table-bordered table-sm table-dark"/>
+
+						{/* render the CSV file as a table */}
+						<CsvToHtmlTable data={myData} csvDelimiter="," tableClassName="table table-striped table-hover table-bordered table-sm table-dark" />
 					</SpaceBetween>
 				</Box>
 			</div>
@@ -195,7 +197,7 @@ const Step_1 = () => {
 						<Button variant="primary" id = 'attributeButton' onClick = {() => setAttributesTrue()}>Go</Button>
 						<ul>
 							{header.map((head) => { return ( 
-							<li className = 'invis'><input type="checkbox" onClick = {(e) => markChecked(head.id)}/>{head.title}</li> )            
+							<li className = 'invis'><input type="checkbox"  onClick = {(e) => markChecked(head.id)}/>&ensp;{head.title}</li> )            
 							})}
 						</ul>
 					</SpaceBetween>
