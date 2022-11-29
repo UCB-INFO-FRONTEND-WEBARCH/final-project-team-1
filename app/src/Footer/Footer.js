@@ -66,7 +66,7 @@ const Footer = () => {
    		<div className="Footer">
 			<div className="steplist">
 				<Button className="footbackbtn" variant="normal" onClick={() => {prev() }}>{ step == 0 ? "Back to Top" : "Back"}</Button>  
-		<Button className="footnextbtn" variant="primary" onClick={() => {next()}}>{ footer_next_btn_name()}</Button> 
+					<Button className="footnextbtn" variant="primary" onClick={() => { next(); window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}}>{ footer_next_btn_name()}</Button> 
 			</div>
     	</div>
   	);
