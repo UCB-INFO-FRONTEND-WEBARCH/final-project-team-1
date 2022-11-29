@@ -1,5 +1,6 @@
 import React from 'react';
 import HowItWorksStep from './HowItWorksStep';
+import Grid from "@cloudscape-design/components/grid";
 
 function HowItWorks() {
     return (

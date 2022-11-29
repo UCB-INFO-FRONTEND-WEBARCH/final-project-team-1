@@ -163,34 +163,24 @@
   background-position: center;
   background-size: cover;
   resize: both;
-  padding: 100px 250px 100px 50%;
-  color: white;
-  font-family: "Open Sans";
-}
-
-.hero > p {
-  font-size: 16px;
+  padding: 100px 300px;
 }
 
 .how-it-works {
   background-color: black;
-  padding: 100px 250px 200px 250px;
+  padding: 100px 300px 200px 300px;
 }
 
 .how-it-works-step {
-  color: white;
-  display: flex;
-  padding: 50px 0px;
+  padding-top: 75px;
+  padding-bottom: 75px;
+  padding-left: auto;
+  padding-right: auto;
   border-bottom: 1px solid #6F6F6F;
-  min-height: 200px;
-}
-
-.how-it-works--description {
-  width: 50%;
-  margin: 0px;
-  position: relative;
-  font-family: "Open Sans";
-  font-size: 14px;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 .how-it-works--description > img {
@@ -199,9 +189,4 @@
   top: 0;
   right: 0;
   opacity: 0.25;
-}
-
-.how-it-works-step > h3 {
-  width: 50%;
-  margin: 0px;
 }
