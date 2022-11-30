@@ -46,7 +46,10 @@ const Footer = () => {
 				setStep2enable(true)
 				break;
 			}
-			break;
+			else{
+				alert("You must upload a file")
+				break;
+			}
 		  case 2:
   		    setStep(3)
 			setStep3enable(true)
