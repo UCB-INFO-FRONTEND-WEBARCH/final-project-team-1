@@ -8,6 +8,8 @@ const Footer = () => {
 	const { step, setStep } = useContext(Context);
 	const { step2enable, setStep2enable} = useContext(Context);
 	const { step3enable, setStep3enable} = useContext(Context);
+	const { dataUpload, setDataUpload} = useContext(Context);
+
 	
 	/*Back button function: Checks current step, and navigates towards previous step by setting the current step State.*/
     function prev() {
@@ -35,9 +37,16 @@ const Footer = () => {
 		    setStep(1)
 			  break;
 		  case 1:
-		  	setStep(2)
-			setStep2enable(true)
-		    break;
+			// setStep(2)
+			// setStep2enable(true)
+			// break;
+
+			if (dataUpload){ //checks to make sure data was uploaded
+				setStep(2)
+				setStep2enable(true)
+				break;
+			}
+			break;
 		  case 2:
   		    setStep(3)
 			setStep3enable(true)

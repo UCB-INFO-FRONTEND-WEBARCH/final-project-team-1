@@ -22,6 +22,7 @@ function App() {
 	const [percent, setPercent] = useState(80);
 	const [step2enable, setStep2enable] = useState(false); /*State to keep track on whether or not step 2 has been unlocked yet*/
 	const [step3enable, setStep3enable] = useState(false); /*State to keep track on whether or not step 3 has been unlocked yet*/
+	const [dataUpload, setDataUpload] = useState(false);
 	
 	/*Checks current step state and renders the corresponding step to the user*/
 	function renderStep() {
@@ -55,7 +56,9 @@ function App() {
 				step2enable,
 				setStep2enable,
 				step3enable, 
-				setStep3enable
+				setStep3enable,
+				dataUpload,
+				setDataUpload
 				}}
 		> 		
 		  <div>

@@ -9,7 +9,7 @@ import Header from "@cloudscape-design/components/header"
  
 const Step_1 = () => {
 	
-	const { step, setStep, myData, setData, header, setHeader} = useContext(Context);
+	const { step, setStep, myData, setData, header, setHeader, dataUpload, setDataUpload} = useContext(Context);
 	var idmax = 0; 
 	let colHeaders = []
 	let hCheck = false;
@@ -19,6 +19,7 @@ const Step_1 = () => {
 
 	function setUploadTrue(){
 		checkForUpload = true
+		setDataUpload(true)
 		viewTable() 
 	}
 
