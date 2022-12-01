@@ -8,7 +8,14 @@ function HowItWorksStep(props) {
             gridDefinition={[{ colspan: 5, offset:{ xxs:1} }, { colspan: 5 }]}
             >
                 <div><h3>{props.header}</h3></div>
-                <div>{props.description}</div>
+                <div className='how-it-works--description'>
+                    {props.description}
+                    <img
+                    src={require(`../images/${props.background}`)}
+                    alt="section icon"
+                    >
+                    </img> 
+                </div>
             </Grid>
         </div>
     );
