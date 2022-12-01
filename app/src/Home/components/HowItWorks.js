@@ -1,6 +1,7 @@
 import React from 'react';
 import HowItWorksStep from './HowItWorksStep';
-import Grid from "@cloudscape-design/components/grid";
+
+// Passes props to each "How It Works" step component.
 
 function HowItWorks() {
     return (

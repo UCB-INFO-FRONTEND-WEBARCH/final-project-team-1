@@ -3,6 +3,8 @@ import { Context } from "../../App";
 import Button from "@cloudscape-design/components/button";
 import Grid from "@cloudscape-design/components/grid";
 
+// Renders Hero section on Home page
+
 function Hero() {
 	
 	const { step, setStep } = useContext(Context);

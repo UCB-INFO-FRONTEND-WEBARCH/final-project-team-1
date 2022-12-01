@@ -9,6 +9,7 @@ import Status from "./Status/Status";
 import Footer from "./Footer/Footer";
 import Results from "./Results/Results";
 import Home from "./Home/Home";
+import Navbar from "./Navbar/Navbar";
 
 applyMode(Mode.Dark);
 
@@ -60,7 +61,8 @@ function App() {
 				dataUpload,
 				setDataUpload
 				}}
-		> 		
+		> 
+		  <Navbar />		
 		  <div>
 			{renderStatus()}
 	        {renderStep()}

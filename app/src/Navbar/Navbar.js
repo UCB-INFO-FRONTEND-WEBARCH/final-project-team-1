@@ -1,18 +1,22 @@
 import React from 'react';
 import fairMLLogo from "./images/load-balancer--pool.svg"
+import Box from "@cloudscape-design/components/box";
+
 
 
 function Navbar() {
     return (
         <div className="nav">
+            <Box variant="h1">
             <div className="nav-logo">
                 <img
                     src={fairMLLogo}
                     alt="FairML Logo"
                     >
                 </img>
-                <h3>FairML</h3>
+                FairML
             </div>
+            </Box>
         </div>
     );
 }
