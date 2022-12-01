@@ -11,9 +11,11 @@ function Hero() {
 	
     return (
         <div className="hero">
+            <div className="hero--content">
             <Grid
             gridDefinition={[{ colspan: 5, offset:{ xxs:1} }, { colspan: 5 }]}
             >
+                {/* Leave first div element empty to align hero content to right side of the grid */}
                 <div></div>
                 <div>
                     <h1>FairML</h1>
@@ -21,6 +23,7 @@ function Hero() {
                     <Button variant="primary" onClick={() => {setStep(1) }}>Get started</Button>
                 </div>
             </Grid>
+            </div>
         </div>
     );
 }

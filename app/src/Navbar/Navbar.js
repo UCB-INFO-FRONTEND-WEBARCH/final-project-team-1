@@ -7,7 +7,7 @@ import Box from "@cloudscape-design/components/box";
 function Navbar() {
     return (
         <div className="nav">
-            <Box variant="h1">
+            <Box variant="h2">
             <div className="nav-logo">
                 <img
                     src={fairMLLogo}
