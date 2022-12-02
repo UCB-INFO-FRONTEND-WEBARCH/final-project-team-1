@@ -76,18 +76,20 @@ const Step_2 = () => {
 			</div>
 			</form> */}
 			{/* display selected header attributes */}
-			<Box margin="l" padding="l">
-				<Box variant="h2">Which attributes do you want to check for bias?</Box>
-				<div>
-					{headerSelected.map((head) => { return ( 
-						<Checkbox
-							onClick = {(e) => markChecked(head.id)} checked
-						>
-						{head.title}
-						</Checkbox>
-					)})}
-				</div>
-			</Box>
+				<Box>
+					<Box variant="h2" margin="l" padding="l">Which attributes do you want to check for bias?</Box>
+					<Box>
+					{headerSelected.map((head) => {
+						return (
+							<ul>
+								<li className='invis'><input type="checkbox" onClick={(e) => markChecked(head.id)} checked />
+								&ensp;{head.title}
+								</li>
+							</ul>
+						)
+					})}
+					</Box>
+				</Box>
 
 			</div>
   	);
