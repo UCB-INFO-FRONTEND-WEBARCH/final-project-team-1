@@ -179,7 +179,7 @@ const Step_1 = () => {
 						<Box variant="h4">Choose your file</Box>
 						<SpaceBetween direction="horizontal" size="xs">
 							<input type="file" accept={".csv"}/>
-							<Button variant="primary" id="uploadButton" onClick = {() => setUploadTrue()}>Submit</Button>
+							<Button variant="primary" id="uploadButton" onClick = {() => setUploadTrue()}>Upload</Button>
 						</SpaceBetween>
 						<p id='uploadedFile'></p>
 
@@ -195,9 +195,9 @@ const Step_1 = () => {
 				<Box margin={{ horizontal: "l" }} padding={{ horizontal: "l" }}>
 					<SpaceBetween direction="vertical" size="xs">
 						<Box variant="h4">Choose your attributes</Box>
-						<Button variant="primary" id = 'attributeButton' onClick = {() => setAttributesTrue()}>Go</Button>
+						<Button variant="primary" id = 'attributeButton' onClick = {() => setAttributesTrue()}>Get from upload</Button>
 						<ul>
-							{header.map((head) => { return ( 
+							{header.slice(3).map((head) => { return ( 
 							<li className = 'invis'><input type="checkbox"  onClick = {(e) => markChecked(head.id)}/>&ensp;{head.title}</li> )            
 							})}
 						</ul>

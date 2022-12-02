@@ -4,6 +4,8 @@ import { Context } from "../App";
 import Box from "@cloudscape-design/components/box";
 import SpaceBetween from "@cloudscape-design/components/space-between";
 import RadioGroup from "@cloudscape-design/components/radio-group";
+import Checkbox from "@cloudscape-design/components/checkbox";
+
 
 const Step_2 = () => {
 	
@@ -37,20 +39,19 @@ const Step_2 = () => {
 				<Box margin="l" padding="l">
 					<SpaceBetween direction="vertical" size="xs">
 						<Box variant="h1">Step 2: Choose reference groups</Box>
-						<Box variant="h4">Reference groups are used to calculate relative disparities in our Bias Audit. For example, you might select Male as the reference group for Gender. FairML will then use Male as the baseline to calculate any biases for other groups in the attribute Gender (for Female and Other for example).</Box>
+						<Box variant="h4">Reference groups are used to calculate relative disparities in our Bias Audit. For example, you might select Male as the reference group for Gender. FairML will then use Male as the baseline to calculate any biases for other groups in the attribute Gender (for Female and Other for example)</Box>
+						{/* display radio button options */}
+						<RadioGroup
+							onChange={({ detail }) => setRadio(detail.value)}
+							value={radio}
+							items={[
+								{ value: "first", label: "Majority group (automatically select the largest group for every attribute)" },
+								{ value: "second", label: "Automatically select group with the lowest bias metric for every attribute" }
+								]}
+						/>
 					</SpaceBetween>
 				</Box>
-				{/* display radio button options */}
-				<Box margin="l" padding="l">
-					<RadioGroup
-						onChange={({ detail }) => setRadio(detail.value)}
-						value={radio}
-						items={[
-							{ value: "first", label: "Majority group (automatically select the largest group for every attribute)" },
-							{ value: "second", label: "Automatically select group with the lowest bias metric for every attribute" }
-						]}
-						/>
-				</Box>
+				
 			{/* <form>
 				<div className="radio">
 			<label>
@@ -75,14 +76,19 @@ const Step_2 = () => {
 			</div>
 			</form> */}
 			{/* display selected header attributes */}
-			<div>
-				{/* include logic to only show header objects marked as True */}
-				<ul>				
+			<Box margin="l" padding="l">
+				<Box variant="h2">Which attributes do you want to check for bias?</Box>
+				<div>
 					{headerSelected.map((head) => { return ( 
-						<li className = 'invis'><input type="checkbox" onClick = {(e) => markChecked(head.id)} checked/>{head.title}</li> )            
-						})}
-				</ul>
-			</div>
+						<Checkbox
+							onClick = {(e) => markChecked(head.id)} checked
+						>
+						{head.title}
+						</Checkbox>
+					)})}
+				</div>
+			</Box>
+
 			</div>
   	);
   };
