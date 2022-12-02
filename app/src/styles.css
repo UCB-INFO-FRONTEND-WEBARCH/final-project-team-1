@@ -1,6 +1,6 @@
 .Step, .Results {
   padding-left: 50px;
-  padding-top: 5px;
+  padding-top: 50px;
   color: #ffffff;
   border-right:none;
   text-align: left;
@@ -12,21 +12,8 @@
   overflow: auto;
 }
 
-/* #Step1 {
-  min-height: 1000vh;  
-  padding-bottom: 200px; 
-  background-color:#000000;
-  
-}
-
-#Step2 {
-  min-height: 100vh; 
-  margin-bottom: 130px; 
-  padding-bottom: 0px;  
-} */
-
 .Status {
-  padding-top: 5px;
+  padding-top: 80px;
   color: #454545;
   border-right:none;
   text-align: center;
