@@ -14,6 +14,9 @@ const Footer = () => {
 	/*Back button function: Checks current step, and navigates towards previous step by setting the current step State.*/
     function prev() {
 		switch(step) {
+		  case 0: 
+		    window.scrollTo(0, 0)
+			break;
 		  case 1:
 		  	setStep(0)
 		    break;
