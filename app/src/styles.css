@@ -6,8 +6,8 @@
   text-align: left;
   font-size:20px;
   background-color:#000000;
-  min-height: 78vh;
-  margin-bottom: 130px;
+  min-height: 100vh;
+  padding-bottom: 130px;
   display: block;
   overflow: auto;
 }
